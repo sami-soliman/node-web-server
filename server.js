@@ -3,6 +3,7 @@ const hbs = require('hbs');
 const fs = require('fs');
 var app = express();
 
+var port = process.env.port || 3000 ;
 hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine','hbs');
 
@@ -45,7 +46,7 @@ app.get('/about', (req,res)=> {
 });
 
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     var datetime = new Date();
-    console.log( datetime + " : starting the app at port 3000 ...")
+    console.log( datetime + ` : starting the app at port ${port} ...`)
 });
